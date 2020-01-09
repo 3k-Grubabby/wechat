@@ -1,0 +1,5 @@
+<view class="container">
+    <image bind:tap="onLeft" class="navi-icon navi-left"  src="{{latest?disLeftSrc:highLeftSrc}}" />
+    <text class="title">{{ title }}</text>
+    <image bind:tap="onRight" class="navi-icon navi-right"  src="{{first?'images/triangle.dis@right.png':'images/triangle@right.png'}}" />
+</view>
