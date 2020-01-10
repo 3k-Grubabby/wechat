@@ -1,0 +1,8 @@
+var formt = function(text, length){
+    // console.log('asfasdfadf')
+    return '123123123'
+  }
+  
+  module.exports = {
+    formt:formt
+  }
