@@ -9,6 +9,9 @@ Component({
       },
       count:{
         type:Number
+      },
+      readOnly:{
+        type:Boolean
       }
   },
 
@@ -17,7 +20,7 @@ Component({
    */
   data: {
     yesSrc:'images/like.png',
-    noSrc:'images/like@dist.png'
+    noSrc:'images/like@dis.png'
   },
 
   /**
@@ -25,6 +28,10 @@ Component({
    */
   methods: {
       onLike:function(event){
+        if(this.properties.readOnly){
+          return 
+        }
+        
        let count = this.properties.count
        count = this.properties.like ? count - 1 : count + 1
 

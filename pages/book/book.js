@@ -3,6 +3,10 @@ import {
   BookModel
 } from "../../models/book.js"
 
+import {
+  random
+} from '../../util/common.js'
+
 const bookModel = new BookModel()
 
 Page({
@@ -11,7 +15,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    books:[]
+    books: [],
+    searching: false,
+    more: ''
   },
 
   /**
@@ -38,11 +44,21 @@ Page({
     // })
 
 
-    const hotList =  bookModel.getHotList()
-    hotList.then(res=>{
+    const hotList = bookModel.getHotList()
+    hotList.then(res => {
       this.setData({
-        books:res
+        books: res
       })
+    })
+  },
+  onSearching(event) {
+    this.setData({
+      searching: true
+    })
+  },
+  onCancel(event) {
+    this.setData({
+      searching: false
     })
   },
 
@@ -85,7 +101,9 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    this.setData({
+      more: random(16)
+    })
   },
 
   /**
